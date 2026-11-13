@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Andrii Trebukhin — Senior Backend Engineer</title>
+  <meta name="description" content="Andrii Trebukhin — Senior Backend Engineer with 10+ years of experience in Ruby on Rails and Go. Based in Kraków, Poland.">
+  <meta property="og:title" content="Andrii Trebukhin — Senior Backend Engineer">
+  <meta property="og:description" content="Ruby on Rails & Go. Backend architecture, APIs, performance, reliability.">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/3489811?v=4">
+  <meta property="og:url" content="https://andriitrebukhin.github.io/">
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/3489811?s=64&v=4">
+  <style>
+    :root {
+      --bg: #fafaf9; --surface: #ffffff; --text: #1c1917; --muted: #57534e;
+      --border: #e7e5e4; --accent: #b11400; --accent-soft: #fdecea;
+      --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0c0a09; --surface: #1c1917; --text: #f5f5f4; --muted: #a8a29e;
+        --border: #292524; --accent: #ff6b57; --accent-soft: #2a1512;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+      background: var(--bg); color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    nav { padding: 28px 0; display: flex; justify-content: space-between; align-items: center; }
+    nav .logo { font-family: var(--mono); font-weight: 600; text-decoration: none; }
+    nav .logo span { color: var(--accent); }
+    nav ul { list-style: none; display: flex; gap: 22px; font-size: 15px; }
+    nav ul a { text-decoration: none; color: var(--muted); }
+    nav ul a:hover { color: var(--text); }
+
+    header.hero { padding: 64px 0 56px; display: flex; gap: 32px; align-items: center; }
+    .hero img { width: 112px; height: 112px; border-radius: 50%; border: 3px solid var(--border); flex-shrink: 0; }
+    .hero .eyebrow { font-family: var(--mono); font-size: 14px; color: var(--accent); margin-bottom: 6px; }
+    .hero h1 { font-size: clamp(32px, 5vw, 44px); line-height: 1.15; letter-spacing: -0.02em; }
+    .hero p { color: var(--muted); margin-top: 10px; }
+    .hero .meta { font-size: 15px; margin-top: 12px; color: var(--muted); }
+
+    .btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px;
+      border-radius: 8px; font-size: 15px; font-weight: 500; text-decoration: none;
+      border: 1px solid var(--border); background: var(--surface);
+      transition: border-color .15s, transform .15s;
+    }
+    .btn:hover { border-color: var(--accent); transform: translateY(-1px); }
+    .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .btn svg { width: 16px; height: 16px; fill: currentColor; }
+
+    section { padding: 48px 0; border-top: 1px solid var(--border); }
+    h2 { font-family: var(--mono); font-size: 14px; font-weight: 600; text-transform: uppercase;
+         letter-spacing: .08em; color: var(--accent); margin-bottom: 20px; }
+    section > .wrap > p + p { margin-top: 14px; }
+
+    .focus { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin-top: 24px; }
+    .focus div { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+    .focus strong { display: block; font-size: 15px; }
+    .focus span { font-size: 14px; color: var(--muted); }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { font-family: var(--mono); font-size: 13.5px; padding: 5px 11px; border-radius: 999px;
+           border: 1px solid var(--border); background: var(--surface); }
+    .tag.main { background: var(--accent-soft); border-color: transparent; color: var(--accent); font-weight: 600; }
+
+    .projects { display: grid; gap: 14px; }
+    .project {
+      display: block; text-decoration: none; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px;
+      transition: border-color .15s, transform .15s;
+    }
+    .project:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .project .top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+    .project h3 { font-size: 18px; }
+    .project .lang { font-family: var(--mono); font-size: 13px; color: var(--muted); white-space: nowrap; }
+    .project .lang::before { content: "●"; margin-right: 6px; color: var(--dot, var(--muted)); }
+    .project p { color: var(--muted); font-size: 15.5px; margin-top: 4px; }
+
+    footer { padding: 40px 0 56px; border-top: 1px solid var(--border); font-size: 14px; color: var(--muted); }
+    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+    @media (max-width: 600px) {
+      nav ul { display: none; }
+      header.hero { flex-direction: column; align-items: flex-start; padding-top: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <a class="logo" href="#">andrii<span>.</span>trebukhin</a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <header class="hero">
+      <img src="https://avatars.githubusercontent.com/u/3489811?s=224&v=4" alt="Andrii Trebukhin">
+      <div>
+        <div class="eyebrow">Hi there 👋 I'm</div>
+        <h1>Andrii Trebukhin</h1>
+        <p>Senior Backend Engineer · Ruby on Rails &amp; Go</p>
+        <div class="meta">📍 Kraków, Poland · 10+ years in production</div>
+        <div class="btns">
+          <a class="btn primary" href="https://drive.google.com/file/d/18oVFNvlXiWTVVjImPAjjjmdz_QPmrG1e/view" target="_blank" rel="noopener">Resume / CV</a>
+          <a class="btn" href="https://github.com/andriitrebukhin" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub
+          </a>
+          <a class="btn" href="https://www.linkedin.com/in/andrii-trebukhin/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <section id="about">
+    <div class="wrap">
+      <h2>About</h2>
+      <p>I'm a Senior Backend Engineer with 10+ years of experience building and optimizing production applications with <strong>Ruby on Rails</strong> and <strong>Go</strong>.</p>
+      <p>I work on backend architecture, microservices, API design, performance, database systems, security, and asynchronous processing. I've improved the performance and reliability of production systems, modernized legacy codebases, and built integrations that hold up. I also work hands-on with React and TypeScript, CI/CD, and AI-assisted engineering workflows.</p>
+      <div class="focus">
+        <div><strong>Architecture &amp; APIs</strong><span>Microservices, API design, integrations</span></div>
+        <div><strong>Performance</strong><span>Profiling, query tuning, caching</span></div>
+        <div><strong>Reliability</strong><span>Async processing, legacy modernization</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="wrap">
+      <h2>Stack</h2>
+      <div class="tags">
+        <span class="tag main">Ruby</span>
+        <span class="tag main">Ruby on Rails</span>
+        <span class="tag main">Go</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">Redis</span>
+        <span class="tag">Sidekiq</span>
+        <span class="tag">REST / GraphQL</span>
+        <span class="tag">React</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Docker</span>
+        <span class="tag">CI/CD</span>
+        <span class="tag">Swift</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <div class="projects">
+        <a class="project" href="https://andriitrebukhin.github.io/ClickShift/" target="_blank" rel="noopener">
+          <div class="top"><h3>ClickShift</h3><span class="lang" style="--dot:#F05138">Swift</span></div>
+          <p>A macOS app that lets you use Zwift Click to shift gears in MyWhoosh.</p>
+        </a>
+        <a class="project" href="https://github.com/andriitrebukhin/data_structures" target="_blank" rel="noopener">
+          <div class="top"><h3>data_structures</h3><span class="lang" style="--dot:#CC342D">Ruby</span></div>
+          <p>Classic data structures implemented in Ruby.</p>
+        </a>
+        <a class="project" href="https://github.com/andriitrebukhin/encmessages" target="_blank" rel="noopener">
+          <div class="top"><h3>encmessages</h3><span class="lang" style="--dot:#CC342D">Ruby</span></div>
+          <p>Encrypt your message.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <p>Want to work together or just say hi? Get in touch.</p>
+      <div class="btns">
+        <a class="btn primary" href="mailto:andrewtrebuhin@gmail.com">✉️ andrewtrebuhin@gmail.com</a>
+        <a class="btn" href="https://www.linkedin.com/in/andrii-trebukhin/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <span>© <span id="y">2026</span> Andrii Trebukhin</span>
+      <span>🇺🇦 Stand with Ukraine</span>
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
